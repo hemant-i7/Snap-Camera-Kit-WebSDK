@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { bootstrapCameraKit, CameraKitSession, createMediaStreamSource, Transform2D, Lens  } from "@snap/camera-kit";
+import { bootstrapCameraKit, CameraKitSession, createMediaStreamSource, Transform2D, Lens } from "@snap/camera-kit";
 import './SnapCamera.css';
 let mediaStream;
 
@@ -13,7 +13,7 @@ const SnapCamera = () => {
   useEffect(() => {
     const init = async () => {
       const cameraKit = await bootstrapCameraKit({ apiToken: apiToken });
-      
+
       const session = await cameraKit.createSession();
 
       // Use the ref to get the canvas element
@@ -31,7 +31,7 @@ const SnapCamera = () => {
     };
 
     init();
-  }, []);
+  }, [apiToken, lensGroupId]);
 
   const setCameraKitSource = async (session, deviceId) => {
     if (mediaStream) {
